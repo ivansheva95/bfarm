@@ -1,0 +1,75 @@
+.promo {
+  height: 70vh;
+  
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 9vw;
+    font-weight: 700;
+    line-height: 90%;
+  }
+
+  &__text {
+    max-width: 535px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+
+    @media (min-width: 767px) {
+      font-size: 20px;
+    }
+  }
+
+  &__brands {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin: 0 10px;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.form {
+  max-width: 400px;
+  width: 100%;
+  margin: 25px 0;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+
+  &__field {
+    width: inherit;
+    padding-left: 30px;
+    border: 2px solid black;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  &__btn {
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    border: none;
+    background: black;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}

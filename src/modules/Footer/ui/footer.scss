@@ -1,0 +1,35 @@
+.footer {
+  border-top: 1px solid silver;
+
+  &__container {
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__navigate {
+
+    a {
+      position: relative;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-right: 20px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 1px;
+        width: 0;
+        background: black;
+        transition: all .3s linear;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
