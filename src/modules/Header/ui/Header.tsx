@@ -1,13 +1,13 @@
 import React from 'react'
-import './header.scss'
 import { Socials } from 'components'
 import { Link } from 'react-router-dom'
+import './header.scss'
 
 export default function Header() {
   return (
     <header className='header'>
       <div className='header__container'>
-        <Link className='header__logo' to='/'>BFrame</Link>
+        <Link className='header__logo' to='/'>BFarm</Link>
         <Socials />
       </div>
     </header>

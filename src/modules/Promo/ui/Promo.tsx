@@ -1,44 +1,110 @@
 import React from 'react'
 import Typed from 'react-typed';
+import {
+  doc,
+  getDoc,
+  setDoc
+} from 'firebase/firestore';
+import { firestore } from 'config/firebase';
+import { toast } from 'react-toastify';
 
-import image1 from 'assets/image/brands/1.png'
-import image2 from 'assets/image/brands/2.png'
-import image3 from 'assets/image/brands/3.png'
+import { Loader, Ripple } from 'ui';
 
 import './promo.scss'
 
 export default function Promo() {
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [content, setContent] = React.useState<any>()
+
+  React.useLayoutEffect(() => {
+    const getContent = async () => {
+      try {
+        setIsLoading(true)
+        const promoRef = doc(firestore, 'HomePage', 'PromoDescription')
+        const response = await getDoc(promoRef)
+        setContent(response.data())
+      } catch (error) {
+        console.error((error as Error).message)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    getContent()
+  }, [])
+
+  const handleSendEmail: React.FormEventHandler<HTMLFormElement> = async (event) => {
+    event.preventDefault()
+
+    const target = event.target as typeof event.target & { email: { value: string } }
+    const email = target.email.value
+
+    try {
+      const emailsRef = doc(firestore, 'HomePage', 'Emails')
+      await setDoc(emailsRef, { [email]: email }, { merge: true })
+
+      toast.info('THANK YOU!', {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } catch (error) {
+      console.error((error as Error).message)
+
+      toast.error('This email appears to be invalid. Please try again.', {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  }
+
+  if (isLoading) return <Loader><Ripple /></Loader>
   return (
     <div className='promo'>
       <div className='promo__container'>
 
         <div className='promo__title'>
           <Typed
-            strings={['indicates',
-              'business',
-              'beyond',
-              'delivered']}
+            strings={content?.title ?? []}
             typeSpeed={150}
             backSpeed={100}
-            startDelay={1500}
+            startDelay={500}
             loop
           />
         </div>
 
         <div className='promo__text'>
-          <strong>News from beauty to business and beyond</strong> - plus an inspiring interview - delivered with a cheeky twist to your inbox daily, for free.
+          <strong>{content?.text[0]}</strong>{content?.text[1]}
         </div>
 
-        <form className='promo__form form'>
-          <input className='form__field' type="email" placeholder='Your Email' required />
-          <input className='form__btn' type="submit" value='Try it' />
+        <form className='promo__form form' onSubmit={handleSendEmail}>
+          <input
+            className='form__field'
+            name='email'
+            type="email"
+            placeholder='Your Email'
+            required
+          />
+          <input
+            className='form__btn'
+            type="submit"
+            value='Try it'
+          />
         </form>
 
-        <div className='promo__brands'>
-          <img src={image1} alt="brand" />
-          <img src={image2} alt="brand" />
-          <img src={image3} alt="brand" />
-        </div>
+        {/* <div className='promo__brands'>
+          {(content.brands as []).map(brand => React.Children.toArray(<img src={brand} alt="brand" />))}
+        </div> */}
       </div>
     </div>
   )
