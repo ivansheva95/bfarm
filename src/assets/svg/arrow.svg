@@ -1,0 +1,15 @@
+<svg class="sign-up-arrow arrow" width="68px" height="23px" viewBox="0 0 68 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+            <g id="01-landing-main" transform="translate(-974.000000, -651.000000)" stroke="#001E41" stroke-width="1.5">
+              <g id="main" transform="translate(79.000000, 148.000000)">
+                <g id="cta" transform="translate(401.000000, 385.000000)">
+                  <g id="form" transform="translate(0.000000, 79.000000)">
+                    <g id="attention" transform="translate(494.794031, 0.265424)">
+                      <path d="M16.7103675,39.9123111 C11.892165,45.8184494 6.32204251,51.3100855 -1.13686838e-13,56.3872193 C6.13273516,56.5762845 12.8263003,57.9116791 20.0806954,60.3934032 M0.634976523,56.6805278 C24.1630599,45.204221 40.8756124,41.7345756 65.6349765,44.145234" id="arrowLPath" style="stroke-dashoffset: 0; stroke-dasharray: none; transform-origin: 0px 0px;" data-svg-origin="65.63497924804676 50.15285682678223" transform="matrix(1,0,0,1,0,0)"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>

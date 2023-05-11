@@ -9,6 +9,7 @@ export default function Footer() {
         <div className='footer__navigate'>
           <Link to='/about'>About</Link>
           <Link to='/contact'>Contact</Link>
+          <Link to='/privacy'>DO NOT SELL MY INFO</Link>
         </div>
       </div>
     </footer>

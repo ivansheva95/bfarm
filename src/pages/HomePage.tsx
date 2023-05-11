@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>BFarm | Home</title>
+        <title>BFarm | Subscribe</title>
       </Helmet>
 
       <Promo />

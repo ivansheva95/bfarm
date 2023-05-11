@@ -10,6 +10,7 @@ import { publicPaths } from "./paths";
 const HomePage = Loadable(React.lazy(() => import('../pages/HomePage')))
 const AboutPage = Loadable(React.lazy(() => import('../pages/AboutPage')))
 const ContactPage = Loadable(React.lazy(() => import('../pages/ContactPage')))
+const PrivacyPage = Loadable(React.lazy(() => import('../pages/PrivacyPage')))
 
 export const publicRoutes: RouteObject[] = [
   {
@@ -18,7 +19,8 @@ export const publicRoutes: RouteObject[] = [
     children: [
       { index: true, element: <HomePage /> },
       { path: publicPaths.ABOUT, element: <AboutPage /> },
-      { path: publicPaths.CONTACT, element: <ContactPage /> }
+      { path: publicPaths.CONTACT, element: <ContactPage /> },
+      { path: publicPaths.PRIVACY, element: <PrivacyPage /> }
     ]
   },
   { path: '*', element: <Navigate to={publicPaths.HOME} /> }

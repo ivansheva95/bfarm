@@ -2,5 +2,6 @@
 export const publicPaths = {
   HOME: '/',
   ABOUT: '/about',
-  CONTACT: '/contact'
+  CONTACT: '/contact',
+  PRIVACY: '/privacy'
 }

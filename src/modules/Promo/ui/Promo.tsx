@@ -1,93 +1,81 @@
 import React from 'react'
 import Typed from 'react-typed';
-import {
-  doc,
-  getDoc,
-  setDoc
-} from 'firebase/firestore';
-import { firestore } from 'config/firebase';
+import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
+import { Icon } from 'ui';
 
-import { Loader, Ripple } from 'ui';
+import image1 from 'assets/image/brands/1.png'
+import image2 from 'assets/image/brands/2.png'
+import image3 from 'assets/image/brands/3.png'
 
 import './promo.scss'
 
 export default function Promo() {
-  const [isLoading, setIsLoading] = React.useState(true)
-  const [content, setContent] = React.useState<any>()
-
-  React.useLayoutEffect(() => {
-    const getContent = async () => {
-      try {
-        setIsLoading(true)
-        const promoRef = doc(firestore, 'HomePage', 'PromoDescription')
-        const response = await getDoc(promoRef)
-        setContent(response.data())
-      } catch (error) {
-        console.error((error as Error).message)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    getContent()
-  }, [])
+  const [isSubmittingMessage, setIsSubmittingMessage] = React.useState(false)
+  const form = React.useRef<HTMLFormElement>(null);
 
   const handleSendEmail: React.FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
+    setIsSubmittingMessage(true)
 
-    const target = event.target as typeof event.target & { email: { value: string } }
-    const email = target.email.value
+    // const target = event.target as typeof event.target & { email: { value: string } }
 
-    try {
-      const emailsRef = doc(firestore, 'HomePage', 'Emails')
-      await setDoc(emailsRef, { [email]: email }, { merge: true })
-
-      toast.info('THANK YOU!', {
-        position: "bottom-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } catch (error) {
-      console.error((error as Error).message)
-
-      toast.error('This email appears to be invalid. Please try again.', {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
+    emailjs.sendForm(
+      process.env.REACT_APP_SERVICE_ID as string,
+      process.env.REACT_APP_TEMPLATE_ID as string,
+      form.current as HTMLFormElement,
+      process.env.REACT_APP_PUBLIC_ID as string
+    )
+      .then((result) => {
+        toast.success('THANK YOU!', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }, (error) => {
+        toast.error(error.text, {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      })
+      .finally(() => {
+        setIsSubmittingMessage(false)
+        form.current?.reset()
+      })
   }
 
-  if (isLoading) return <Loader><Ripple /></Loader>
   return (
     <div className='promo'>
       <div className='promo__container'>
 
         <div className='promo__title'>
+          <p>IS FOR</p>
           <Typed
-            strings={content?.title ?? []}
+            strings={['New', 'Ambition', 'Great', 'Big', 'Strong']}
             typeSpeed={150}
             backSpeed={100}
             startDelay={500}
             loop
           />
+          <p>Amazon Brands</p>
         </div>
 
         <div className='promo__text'>
-          <strong>{content?.text[0]}</strong>{content?.text[1]}
+          <strong>In BFarm, we Guarantee results.</strong>That’s why we are trying to choose brands carefully to work with. Leave your email, receive & fill out Google Form to be considered.
         </div>
 
-        <form className='promo__form form' onSubmit={handleSendEmail}>
+        <form className='promo__form form' ref={form} onSubmit={handleSendEmail}>
           <input
             className='form__field'
             name='email'
@@ -98,13 +86,30 @@ export default function Promo() {
           <input
             className='form__btn'
             type="submit"
-            value='Try it'
+            value={isSubmittingMessage ? 'Submitting...' : 'Try it'}
           />
+          <div className='form__actions'>
+            <span>
+              <Icon name='arrow' height={23} width={68} />
+            </span>
+
+            <div>
+              <span>
+                <Icon name='click' height={32} width={62} />
+              </span>
+              <span>
+                <Icon name='click' height={32} width={62} />
+              </span>
+            </div>
+          </div>
         </form>
 
-        {/* <div className='promo__brands'>
-          {(content.brands as []).map(brand => React.Children.toArray(<img src={brand} alt="brand" />))}
-        </div> */}
+
+        <div className='promo__brands'>
+          <img src={image1} alt="brand" />
+          <img src={image2} alt="brand" />
+          <img src={image3} alt="brand" />
+        </div>
       </div>
     </div>
   )

@@ -1,4 +1,6 @@
 .promo {
+  // padding: 50px 0;
+  padding-bottom: 20px;
   
   &__container {
     height: 100%;
@@ -9,9 +11,25 @@
   }
 
   &__title {
+
+    p:first-child {
+      position: relative;
+      align-self: self-start;
+      font-size: 4vw;
+      font-family: 'Marck Script', cursive;
+    }
+
+    p:last-child {
+      margin-top: 20px;
+      font-weight: 500;
+      font-size: 8vw;
+      font-family: 'Castoro Titling', cursive;
+    }
+
+    display: flex;
+    flex-direction: column;
     text-transform: uppercase;
     text-align: center;
-    margin: 10px 0;
     font-size: 9vw;
     font-weight: 700;
     line-height: 90%;
@@ -30,6 +48,7 @@
   }
 
   &__brands {
+    
     height: 23px;
     overflow: hidden;
     display: flex;
@@ -45,10 +64,11 @@
 }
 
 .form {
+  position: relative;
   max-width: 400px;
   width: 100%;
   margin: 25px 0;
-  height: 60px;
+  height: 70px;
   display: flex;
   justify-content: center;
 
@@ -71,5 +91,60 @@
     color: white;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+  }
+
+  &__btn:hover ~ &__actions > span svg {
+    animation: fade .2s linear .2s;
+  }
+
+  &__btn:hover ~ &__actions div span:first-child svg {
+    animation: fade .2s linear;
+  }
+
+  &__btn:hover ~ &__actions div span:last-child svg {
+    animation: fade .2s linear .2s;
+  }
+
+  &__actions {
+    position: absolute;
+    bottom: 0;
+    right: -150px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > span {
+      animation: fade .2s linear .2s;
+    }
+
+    div {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      span:first-child {
+        animation: fade .2s linear;
+      }
+
+      span:last-child {
+        margin-top: 20px;
+        rotate: 45deg;
+        animation: fade .2s linear .2s;
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    scale: 0.1;
+  } 
+  to {
+    opacity: 1;
+    scale: 1;
   }
 }
