@@ -9,9 +9,9 @@ export default function RootLayout() {
     <div className='container'>
       <div className='wrapper'>
         <Header />
-        <main className='main'>
-          <Outlet />
-        </main>
+        {/* <main className='main'> */}
+        <Outlet />
+        {/* </main> */}
         <Footer />
       </div>
     </div>
