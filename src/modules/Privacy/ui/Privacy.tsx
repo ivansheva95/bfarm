@@ -39,7 +39,7 @@ export default function Privacy() {
               </ul>
               <h2>Do Not Sell My Info</h2>
               <p>In accordance with privacy laws, BFarm respects your right to opt out of the sale of your personal information. BFarm does not sell personal information to third parties for monetary or other valuable consideration.</p>
-              <p>If you wish to exercise this right, please contact us at [Contact Email]. Please note that we may need to verify your identity before processing your request.</p>
+              <p>If you wish to exercise this right, please contact us at <span className='privacy__navigate'><Link to='mailto:websitebfarm@gmail.com'>websitebfarm@gmail.com</Link></span>.<div className='privacy__navigate'><Link to='mailto:websitebfarm@gmail.com'>websitebfarm@gmail.com</Link></div> Please note that we may need to verify your identity before processing your request.</p>
               <h2>Changes to This Privacy Policy</h2>
               <p>We may change this Privacy Policy from time to time. We will post any changes on this page and, if the changes are significant, we will provide a more prominent notice.</p>
               <h2>Contact Us</h2>

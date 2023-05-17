@@ -3,7 +3,6 @@ import Typed from 'react-typed';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import { Icon } from 'ui';
-import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 
 import image1 from 'assets/image/brands/1.png'
@@ -16,7 +15,6 @@ export default function Promo() {
   const [isSubmittingMessage, setIsSubmittingMessage] = React.useState(false)
   const [isConfetti, setISConfetti] = React.useState(false)
   const form = React.useRef<HTMLFormElement>(null);
-  const { width, height } = useWindowSize()
 
   const handleSendEmail: React.FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()

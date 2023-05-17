@@ -3,7 +3,6 @@ import { Icon } from 'ui'
 import './socials.scss'
 import Social from './Social'
 
-
 export default function Socials() {
 
   return (

@@ -2,23 +2,14 @@
   padding: 50px 0;
 
   &__top {
-    min-height: 416px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    // justify-content: center;
-    // align-items: center;
-    // display: flex;
-    // justify-content: center;
-    // flex-direction: column;
-    // align-items: center;
 
     @media (min-width: 1000px) {
       grid-template-columns: repeat(2, 1fr);
       justify-content: center;
       align-items: center;
-      // flex-direction: row;
-      // align-items: stretch;
     }
   }
 
@@ -43,7 +34,6 @@
   }
 
   &__description {
-    align-self: self-start;
     width: 100%;
 
     @media (min-width: 1000px) {
@@ -91,7 +81,7 @@
   }
 
   &__dream {
-    margin-top: 70px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
