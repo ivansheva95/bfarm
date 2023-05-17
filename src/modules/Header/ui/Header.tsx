@@ -9,8 +9,8 @@ export default function Header() {
     <header className='header'>
       <div className='header__container'>
         <Link className='header__logo' to='/'>
-          BFarm!
           <img width={80} src={image} alt="logo" />
+          BFarm!
         </Link>
         <Socials />
       </div>

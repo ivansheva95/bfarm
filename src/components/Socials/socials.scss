@@ -63,10 +63,18 @@
       border: solid 2px black;
       border-radius: 50%;
       transition: all .3s linear;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     a:hover {
       background: black;
+
+      svg {
+        color: white;
+      }
     }
   }
 }

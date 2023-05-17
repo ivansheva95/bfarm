@@ -15,7 +15,8 @@ export default function Socials() {
       </div>
 
       <ul className='socials__list'>
-        {Array(4).fill(0).map(() => React.Children.toArray(<Social />))}
+        <Social href='https://www.facebook.com/maksym.lazuto' name='facebook' />
+        <Social href='https://www.linkedin.com/in/maksym-lazuto/' name='linkedin' />
       </ul>
     </div >
   )
