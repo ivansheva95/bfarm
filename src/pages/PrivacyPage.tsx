@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { Privacy } from 'modules'
 
 export default function PrivacyPage() {
   return (
@@ -8,7 +9,7 @@ export default function PrivacyPage() {
         <title>BFarm | Privacy</title>
       </Helmet>
 
-      <div>PrivacyPage</div>
+      <Privacy />
     </>
   )
 }

@@ -3,6 +3,8 @@ import Typed from 'react-typed';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import { Icon } from 'ui';
+import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
 
 import image1 from 'assets/image/brands/1.png'
 import image2 from 'assets/image/brands/2.png'
@@ -12,7 +14,9 @@ import './promo.scss'
 
 export default function Promo() {
   const [isSubmittingMessage, setIsSubmittingMessage] = React.useState(false)
+  const [isConfetti, setISConfetti] = React.useState(false)
   const form = React.useRef<HTMLFormElement>(null);
+  const { width, height } = useWindowSize()
 
   const handleSendEmail: React.FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
@@ -37,6 +41,7 @@ export default function Promo() {
           progress: undefined,
           theme: "colored",
         });
+        setISConfetti(true)
       }, (error) => {
         toast.error(error.text, {
           position: "top-center",
@@ -103,6 +108,22 @@ export default function Promo() {
             </div>
           </div>
         </form>
+        {
+          isConfetti &&
+          <Confetti
+            drawShape={ctx => {
+              ctx.beginPath()
+              for (let i = 0; i < 22; i++) {
+                const angle = 0.35 * i
+                const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
+                const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
+                ctx.lineTo(x, y)
+              }
+              ctx.stroke()
+              ctx.closePath()
+            }}
+          />
+        }
 
 
         <div className='promo__brands'>

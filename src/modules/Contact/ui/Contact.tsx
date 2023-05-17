@@ -13,26 +13,15 @@ export default function Contact() {
         <div className='contact__address'>
 
           <div className='contact__block'>
-            <div >
-              <p>ADVERTISE</p>
-              <Link to='#'>ADS@THENEWSETTE.COM</Link>
-            </div>
-
-            <div>
-              <p>PRESS INQUIRES</p>
-              <Link to='#'>INQUIRIES@THENEWSETTE.COM</Link>
-            </div>
-          </div>
-
-          <div className='contact__block'>
-            <div>
-              <p>CAREERS</p>
-              <Link to='#'>JOIN THE TEAM HERE</Link>
-            </div>
-
             <div>
               <p>GENERAL</p>
-              <Link to='#'>NEWSETTE@THENEWSETTE.COM</Link>
+              <Link to='mailto:websitebfarm@gmail.com'>websitebfarm@gmail.com</Link>
+            </div>
+          </div>
+          <div className='contact__block'>
+            <div>
+              <p>Telegram</p>
+              <Link to='https://t.me/bfarm_ama/zon'>https://t.me/bfarm_ama/zon</Link>
             </div>
           </div>
 
@@ -40,10 +29,10 @@ export default function Contact() {
             <div>
               <p>ADDRESS</p>
               <span>
-                Newsette, LLC <br />
-                228 Park Ave S Suite 62351 <br />
-                New York NY 10003 <br />
-                United States <br />
+                Gulliver <br />
+                Sportyvna Square, 1A <br />
+                Kyiv 01023 <br />
+                Ukraine <br />
               </span>
             </div>
           </div>
