@@ -9,7 +9,7 @@ type SocialProps = {
 export default function Social({ href, name }: SocialProps) {
   return (
     <li className='socials__item'>
-      <a href={href}>
+      <a target='_blank' href={href} rel="noreferrer" >
         <Icon name={name} height={20} width={20} />
       </a>
     </li>
