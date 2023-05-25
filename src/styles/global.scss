@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&family=swap');
 
 body {
   background-image: url('../assets/image/bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Roboto', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 .container {
@@ -17,6 +21,13 @@ body {
 }
 
 .wrapper {
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper__loader {
   min-height: 100vh;
   overflow: hidden;
   display: flex;

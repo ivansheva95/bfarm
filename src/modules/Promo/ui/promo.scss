@@ -3,7 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px 0;
+ 
+  @media (max-width: 1024px) {
+    padding: 25px 0;
+  }
 
   &__container {
     height: 100%;
@@ -18,14 +21,14 @@
     p:first-child {
       position: relative;
       align-self: self-start;
-      font-size: 4vw;
-      font-family: 'Marck Script', cursive;
+      font-size: 3vw;
+      font-family: 'Castoro Titling', cursive;
     }
 
     p:last-child {
       margin-top: 20px;
       font-weight: 500;
-      font-size: 8vw;
+      font-size: 6vw;
       font-family: 'Castoro Titling', cursive;
     }
 
@@ -33,15 +36,26 @@
     flex-direction: column;
     text-transform: uppercase;
     text-align: center;
-    font-size: 9vw;
+    font-size: 6vw;
     font-weight: 700;
     line-height: 90%;
+
+    @media (max-width: 460px) {
+      font-size: 8vw;
+      
+      p:first-child {
+        font-size: 4vw;
+      }
+      p:last-child {
+        font-size: 8vw;
+      }
+    }
   }
 
   &__text {
     max-width: 535px;
     margin-top: 20px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     text-align: center;
 
@@ -116,6 +130,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 820px) {
+      display: none;
+    }
 
     & > span {
       animation: fade .2s linear .2s;

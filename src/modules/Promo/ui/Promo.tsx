@@ -23,10 +23,10 @@ export default function Promo() {
     // const target = event.target as typeof event.target & { email: { value: string } }
 
     emailjs.sendForm(
-      process.env.REACT_APP_SERVICE_ID as string,
-      process.env.REACT_APP_TEMPLATE_ID as string,
+      'service_iq6vbun',
+      'template_w3dg84b',
       form.current as HTMLFormElement,
-      process.env.REACT_APP_PUBLIC_ID as string
+      'nj_JEVfYXhD-H7kKu'
     )
       .then((result) => {
         toast.success('THANK YOU!', {

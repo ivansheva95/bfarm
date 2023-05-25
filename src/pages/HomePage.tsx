@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>BFarm | Subscribe</title>
+        <title>BFarm | Amazon Sales Partner</title>
       </Helmet>
 
       <Promo />
