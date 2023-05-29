@@ -14,6 +14,7 @@ export default function Socials() {
       </div>
 
       <ul className='socials__list'>
+        <Social href='https://t.me/bfarm_amazon' name='telegram' />
         <Social href='https://www.facebook.com/maksym.lazuto' name='facebook' />
         <Social href='https://www.linkedin.com/in/maksym-lazuto/' name='linkedin' />
       </ul>

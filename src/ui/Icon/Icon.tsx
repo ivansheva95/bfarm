@@ -2,7 +2,7 @@ import React from 'react'
 import sprite from 'assets/svg/_sprite.svg'
 
 type IconType = {
-  name: 'create' | 'arrow' | 'click' | 'facebook' | 'linkedin',
+  name: 'create' | 'arrow' | 'click' | 'facebook' | 'linkedin' | 'telegram',
   height?: number,
   width?: number
 }

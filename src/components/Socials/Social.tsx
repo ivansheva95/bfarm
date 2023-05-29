@@ -3,7 +3,7 @@ import { Icon } from 'ui'
 
 type SocialProps = {
   href: string
-  name: 'create' | 'arrow' | 'click' | 'facebook' | 'linkedin',
+  name: 'create' | 'arrow' | 'click' | 'facebook' | 'linkedin' | 'telegram',
 }
 
 export default function Social({ href, name }: SocialProps) {
